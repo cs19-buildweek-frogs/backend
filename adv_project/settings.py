@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
 
     #own
-    'products',
+    'items'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
