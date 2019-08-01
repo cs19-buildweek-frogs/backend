@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-
+#setting for the website /Pablo
 import os
 from decouple import config
 
@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+
+    #own
+    'items'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
