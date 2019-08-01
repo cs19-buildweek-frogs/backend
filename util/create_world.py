@@ -73,7 +73,7 @@ room_list = [
         "n": 6,
         "s": 1,
         "e": 5,
-        "w": -1,
+        "w": 20,
         "description": "There are exits to the north south east",
         "items": [""]
     },

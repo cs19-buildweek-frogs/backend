@@ -21,7 +21,12 @@ def initialize(request):
     player_id = player.id
     uuid = player.uuid
     room = player.room()
+    # room = Room.object.get(id=0)
     players = room.playerNames(player_id)
+    # if room.items:
+    #     items = nextRoom.items
+    # else:
+    #     items = ""
     return JsonResponse({'uuid': uuid, 'name': player.user.username, 'title': room.title, 'description': room.description, 'players': players}, safe=True)
 
 
@@ -55,18 +60,23 @@ def move(request):
         nextRoomID = room.e
     elif direction == "w":
         nextRoomID = room.w
-    if nextRoomID is not None and nextRoomID > 0:
+    if nextRoomID is not None and nextRoomID >= 0:
         nextRoom = Room.objects.get(id=nextRoomID)
         player.currentRoom = nextRoomID
         player.save()
         players = nextRoom.playerNames(player_id)
         currentPlayerUUIDs = room.playerUUIDs(player_id)
         nextPlayerUUIDs = nextRoom.playerUUIDs(player_id)
+
+        if nextRoom.items:
+            items = nextRoom.items
+        else:
+            items = ""
         # for p_uuid in currentPlayerUUIDs:
         #     pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {'message':f'{player.user.username} has walked {dirs[direction]}.'})
         # for p_uuid in nextPlayerUUIDs:
         #     pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {'message':f'{player.user.username} has entered from the {reverse_dirs[direction]}.'})
-        return JsonResponse({'name': player.user.username, 'title': nextRoom.title, 'description': nextRoom.description, 'players': players, 'error_msg': ""}, safe=True)
+        return JsonResponse({'name': player.user.username, 'title': nextRoom.title, 'description': nextRoom.description, 'players': players, 'items': items, 'error_msg': ""}, safe=True)
     else:
         players = room.playerNames(player_id)
         return JsonResponse({'name': player.user.username, 'title': room.title, 'description': room.description, 'players': players, 'error_msg': "You cannot move that way."}, safe=True)
