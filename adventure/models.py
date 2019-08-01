@@ -10,6 +10,7 @@ class Room(models.Model):
     title = models.CharField(max_length=50, default="DEFAULT TITLE")
     description = models.CharField(
         max_length=500, default="DEFAULT DESCRIPTION")
+    items = models.CharField(max_length=500, default="")
     x = models.IntegerField(default=0)
     y = models.IntegerField(default=0)
     n = models.IntegerField(default=0)

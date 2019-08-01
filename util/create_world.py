@@ -63,7 +63,7 @@ room_list = [
         "e": 4,
         "w": 2,
         "description": "There are exits to the north south east west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 1,
@@ -75,7 +75,7 @@ room_list = [
         "e": 5,
         "w": -1,
         "description": "There are exits to the north south east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 2,
@@ -87,7 +87,7 @@ room_list = [
         "e": 0,
         "w": -1,
         "description": "There are exits to the north south east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 3,
@@ -99,7 +99,7 @@ room_list = [
         "e": 9,
         "w": 8,
         "description": "There are exits to the north east west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 4,
@@ -111,7 +111,7 @@ room_list = [
         "e": -1,
         "w": 0,
         "description": "There are exits to the north south west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 5,
@@ -123,7 +123,7 @@ room_list = [
         "e": -1,
         "w": 1,
         "description": "There are exits to the north south west",
-        # "items": [""]
+        "items": [""]
     },
 
     {
@@ -136,7 +136,7 @@ room_list = [
         "e": 15,
         "w": 7,
         "description": "There are exits to the south east west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 7,
@@ -148,7 +148,7 @@ room_list = [
         "e": 6,
         "w": -1,
         "description": "There are exits to the north south east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 8,
@@ -160,7 +160,7 @@ room_list = [
         "e": 3,
         "w": -1,
         "description": "There are exits to the north east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 9,
@@ -172,7 +172,7 @@ room_list = [
         "e": -1,
         "w": 3,
         "description": "There are exits to the north west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 10,
@@ -184,7 +184,7 @@ room_list = [
         "e": -1,
         "w": -1,
         "description": "There are exits to the north south",
-        # "items": [""]
+        "items": [""]
     },
 
     {
@@ -197,7 +197,7 @@ room_list = [
         "e": -1,
         "w": 15,
         "description": "There are exits to the north south west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 12,
@@ -209,7 +209,7 @@ room_list = [
         "e": 13,
         "w": 14,
         "description": "There are exits to the south east west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 13,
@@ -221,7 +221,7 @@ room_list = [
         "e": -1,
         "w": 12,
         "description": "There are exits to the south west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 14,
@@ -233,7 +233,7 @@ room_list = [
         "e": 12,
         "w": 16,
         "description": "There are exits to the south east west",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 15,
@@ -245,7 +245,7 @@ room_list = [
         "e": 11,
         "w": 6,
         "description": "There are exits to the east west",
-        # "items": [""]
+        "items": [""]
     },
 
     {
@@ -258,7 +258,7 @@ room_list = [
         "e": 14,
         "w": -1,
         "description": "There are exits to the south east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 17,
@@ -270,7 +270,7 @@ room_list = [
         "e": -1,
         "w": -1,
         "description": "There are exits to the north south",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 18,
@@ -294,7 +294,7 @@ room_list = [
         "e": 8,
         "w": -1,
         "description": "There are exits to the north east",
-        # "items": [""]
+        "items": [""]
     },
     {
         "id": 20,
@@ -306,7 +306,7 @@ room_list = [
         "e": 1,
         "w": -1,
         "description": "There is exit to the east",
-        # "items": [""]
+        "items": [""]
     }
 ]
 
@@ -319,10 +319,10 @@ for r in room_list:
         x = r["x"]
     if "y" in r:
         y = r["y"]
-    make_r = Room(id=r["id"], title=r["title"],
-                  description=r["description"], x=x, y=y, n=n, s=s, e=e, w=w)
-    # make_r = Room(id=r["id"], title=r["title"], description=r["description"], x=x, y=y, n=n, s=s, e=e, w=w,
-    #               items="".join(r["items"]))
+    # make_r = Room(id=r["id"], title=r["title"],
+    #               description=r["description"], x=x, y=y, n=n, s=s, e=e, w=w)
+    make_r = Room(id=r["id"], title=r["title"], description=r["description"], x=x, y=y, n=n, s=s, e=e, w=w,
+                  items="".join(r["items"]))
     make_r.save()
 
 players = Player.objects.all()

@@ -4,10 +4,10 @@ from rest_framework import serializers
 class RoomSerializer(serializers.Serializer):
     id = serializers.IntegerField(default=0)
     title = serializers.CharField(max_length=50, default="DEFAULT TITLE")
-    # something = {'test'}
+
     description = serializers.CharField(
         max_length=500, default="DEFAULT DESCRIPTION")
-    # items = serializers.CharField(max_length=500, default="")
+    items = serializers.CharField(max_length=500, default="")
     # coords = {}
     x = serializers.IntegerField(default=0)
     y = serializers.IntegerField(default=0)
